@@ -4,6 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>아침 정거장</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#F9FAFB">
+<meta name="description" content="오늘의 날씨와 경제 뉴스로 하루를 여는 시작 페이지">
+<link rel="icon" href="icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="아침 정거장">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
@@ -835,6 +844,13 @@ setInterval(loadNews, 15 * 60 * 1000);
 document.addEventListener("visibilitychange", function(){
   if(!document.hidden){ loadWeather(); loadNews(); }
 });
+
+// 앱으로 설치해 쓸 수 있도록 (https 에서만 동작하고, 실패해도 페이지는 그대로)
+if("serviceWorker" in navigator){
+  window.addEventListener("load", function(){
+    navigator.serviceWorker.register("sw.js")["catch"](function(){});
+  });
+}
 
 // 화면을 돌리거나 창 너비가 바뀌면 그래프를 그 폭에 맞춰 다시 그린다
 var resizeTimer = null, lastWidth = window.innerWidth;
