@@ -309,7 +309,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
     </section>
   </div>
 
-  <p class="foot">날씨 Open-Meteo · 뉴스 한국경제 · 매일경제 · 연합뉴스 RSS · 마지막 갱신 <span class="num" id="lastSync">—</span></p>
+  <p class="foot">날씨 Open-Meteo · 뉴스 한국경제 · 연합뉴스 RSS · 마지막 갱신 <span class="num" id="lastSync">—</span></p>
 </div>
 
 <script>
@@ -667,10 +667,13 @@ function loadWeather(){
 }
 
 /* ===================== 뉴스 ===================== */
+// 매체를 바꾸려면 여기만 고치면 됩니다.
+// 주의: 기사 주소가 실제로 열리는 매체만 넣을 것.
+// (2026-09-30 매일경제 mk.co.kr 도메인이 연결되지 않아 연합뉴스 경제로 교체)
 var FEEDS = {
   eco: [
     {url: "https://www.hankyung.com/feed/economy", source: "한국경제"},
-    {url: "https://www.mk.co.kr/rss/30100041/",    source: "매일경제"}
+    {url: "https://www.yna.co.kr/rss/economy.xml", source: "연합뉴스"}
   ],
   top: [
     {url: "https://www.yna.co.kr/rss/news.xml",    source: "연합뉴스"}
@@ -822,14 +825,30 @@ function failFeed(listEl, stampEl){
 }
 
 function loadNews(){
-  loadGroup(FEEDS.eco).then(function(items){
-    renderFeed($("ecoFeed"), $("ecoStamp"), items, 10, true);
-    stampSync();
-  })["catch"](function(){ failFeed($("ecoFeed"), $("ecoStamp")); });
+  function attempt(feeds){
+    return loadGroup(feeds).then(function(items){ return items; }, function(){ return null; });
+  }
+  Promise.all([attempt(FEEDS.eco), attempt(FEEDS.top)]).then(function(res){
+    var eco = res[0], top = res[1];
 
-  loadGroup(FEEDS.top).then(function(items){
-    renderFeed($("topFeed"), $("topStamp"), items, 8, false);
-  })["catch"](function(){ failFeed($("topFeed"), $("topStamp")); });
+    if(eco){
+      renderFeed($("ecoFeed"), $("ecoStamp"), eco, 10, true);
+      stampSync();
+    }else{
+      failFeed($("ecoFeed"), $("ecoStamp"));
+    }
+
+    if(top){
+      // 경제 칸에 이미 올라간 기사는 종합에서 뺀다 (두 칸 모두 연합뉴스를 쓰므로)
+      var seen = {};
+      if(eco){
+        eco.slice(0, 10).forEach(function(it){ seen[it.link] = 1; });
+      }
+      renderFeed($("topFeed"), $("topStamp"), top.filter(function(it){ return !seen[it.link]; }), 8, false);
+    }else{
+      failFeed($("topFeed"), $("topStamp"));
+    }
+  });
 }
 
 /* ===================== 갱신 ===================== */
