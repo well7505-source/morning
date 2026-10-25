@@ -833,7 +833,7 @@ function ago(dateStr){
   return Math.round(hrs / 24) + "일 전";
 }
 
-function renderFeed(listEl, stampEl, items, count, ranked){
+function renderFeed(listEl, stampEl, items, count, ranked, stampSuffix){
   var n = Math.min(count, items.length), html = "";
   for(var i = 0; i < n; i++){
     var it = items[i], when = ago(it.date);
@@ -849,7 +849,7 @@ function renderFeed(listEl, stampEl, items, count, ranked){
       '</li>';
   }
   listEl.innerHTML = html;
-  stampEl.textContent = "기사 " + n + "건";
+  stampEl.textContent = "기사 " + n + "건" + (stampSuffix || "");
 }
 
 function failFeed(listEl, stampEl){
@@ -858,7 +858,29 @@ function failFeed(listEl, stampEl){
   stampEl.textContent = "연결 실패";
 }
 
+// 1순위: 같은 주소에 미리 받아둔 news.json (중계 서버가 필요 없어 늘 빠르고 확실하다)
 function loadNews(){
+  fetchText("news.json?t=" + Date.now(), 8000).then(function(text){
+    var data = JSON.parse(text);
+    if(!data || !data.eco || !data.eco.length) throw new Error("비어 있음");
+    return data;
+  }).then(function(data){
+    var stamp = data.updated ? " · " + hhmmLocal(data.updated) + " 기준" : "";
+    renderFeed($("ecoFeed"), $("ecoStamp"), data.eco, 10, true, stamp);
+    renderFeed($("topFeed"), $("topStamp"), data.top || [], 8, false, stamp);
+    stampSync();
+  })["catch"](function(){
+    loadNewsLive();   // 그래도 안 되면 중계 서버를 거쳐 직접 받아본다
+  });
+}
+
+function hhmmLocal(iso){
+  var d = new Date(iso);
+  return isNaN(d.getTime()) ? "" : pad(d.getHours()) + ":" + pad(d.getMinutes());
+}
+
+// 2순위: 공개 중계 서버 (news.json 이 없거나 못 읽을 때만)
+function loadNewsLive(){
   function attempt(feeds){
     return loadGroup(feeds).then(function(items){ return items; }, function(){ return null; });
   }
