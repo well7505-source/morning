@@ -680,13 +680,16 @@ var FEEDS = {
   ]
 };
 
-// 언론사 RSS는 CORS 헤더를 주지 않으므로 공개 중계 서버를 차례로 시도한다
+// 언론사 RSS는 CORS 헤더를 주지 않으므로 공개 중계 서버를 거쳐야 한다.
+// 어느 하나가 죽어도 기다리지 않도록, 앞의 것이 3.5초 안에 답하지 않으면
+// 다음 것도 동시에 띄워 먼저 도착한 답을 쓴다. 순서는 선호도일 뿐이다.
 var PROXIES = [
-  function(u){ return {url: "https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(u), mode: "rss2json"}; },
   function(u){ return {url: "https://api.allorigins.win/raw?url=" + encodeURIComponent(u), mode: "xml"}; },
   function(u){ return {url: "https://api.codetabs.com/v1/proxy?quest=" + encodeURIComponent(u), mode: "xml"}; },
-  function(u){ return {url: "https://api.allorigins.win/get?url=" + encodeURIComponent(u), mode: "json"}; }
+  function(u){ return {url: "https://api.allorigins.win/get?url=" + encodeURIComponent(u), mode: "json"}; },
+  function(u){ return {url: "https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(u), mode: "rss2json"}; }
 ];
+var HEDGE_MS = 3500;   // 다음 경로를 함께 띄우기까지 기다리는 시간
 
 function fetchText(url, ms){
   var ctrl = typeof AbortController === "function" ? new AbortController() : null;
@@ -747,16 +750,47 @@ function parseRss2Json(text){
   return out;
 }
 
-function loadOne(feedUrl, idx){
-  var i = idx || 0;
-  if(i >= PROXIES.length) return Promise.reject(new Error("모든 경로 실패"));
-  var p = PROXIES[i](feedUrl);
-  return fetchText(p.url).then(function(text){
-    if(p.mode === "rss2json") return parseRss2Json(text);
-    if(p.mode === "json")     return parseXml(JSON.parse(text).contents);
-    return parseXml(text);
-  })["catch"](function(){
-    return loadOne(feedUrl, i + 1);
+function parseBy(mode, text){
+  if(mode === "rss2json") return parseRss2Json(text);
+  if(mode === "json")     return parseXml(JSON.parse(text).contents);
+  return parseXml(text);
+}
+
+// 경로를 하나씩 "추가로" 띄우고 먼저 성공한 답을 쓴다.
+// 앞의 경로가 죽어 있어도 3.5초만 손해 보고 넘어간다.
+function loadOne(feedUrl){
+  return new Promise(function(resolve, reject){
+    var next = 0, failed = 0, settled = false, timer = null;
+
+    function giveUp(){
+      failed++;
+      if(settled) return;
+      if(failed >= PROXIES.length){
+        settled = true;
+        clearTimeout(timer);
+        reject(new Error("모든 경로 실패"));
+        return;
+      }
+      start();   // 빨리 실패했으면 기다리지 말고 바로 다음 경로로
+    }
+
+    function start(){
+      if(settled || next >= PROXIES.length) return;
+      clearTimeout(timer);
+      var cfg = PROXIES[next++](feedUrl);
+
+      fetchText(cfg.url, 10000).then(function(text){
+        if(settled) return;
+        var items = parseBy(cfg.mode, text);   // 실패하면 아래 catch 로 간다
+        settled = true;
+        clearTimeout(timer);
+        resolve(items);
+      })["catch"](giveUp);
+
+      if(next < PROXIES.length) timer = setTimeout(start, HEDGE_MS);
+    }
+
+    start();
   });
 }
 
