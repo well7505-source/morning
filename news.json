@@ -1,6 +1,72 @@
 {
- "updated": "2026-10-26T11:08:16.534Z",
+ "updated": "2026-10-26T17:24:03.361Z",
  "eco": [
+  {
+   "title": "\"AI 낙오주가 피난처로\"…애플, 나스닥100과 거꾸로 가는 '안티 AI주' 됐다",
+   "link": "https://www.hankyung.com/article/202610266364i",
+   "date": "2026-10-26T15:05:35.000Z",
+   "source": "한국경제"
+  },
+  {
+   "title": "20년 전 기준에 머문 근로감독관 교육자료…\"대법판례 역행\"",
+   "link": "https://www.yna.co.kr/view/AKR20261026156700530",
+   "date": "2026-10-26T15:00:02.000Z",
+   "source": "연합뉴스"
+  },
+  {
+   "title": "머스크의 네오클라우드 죽이기?…\"기업AI 최종 승자는 MS\" [박신영의 개장전 요것만]",
+   "link": "https://www.hankyung.com/article/202610266357i",
+   "date": "2026-10-26T14:36:52.000Z",
+   "source": "한국경제"
+  },
+  {
+   "title": "'AI 최대어' 앤스로픽, 나스닥 상장 위한 IPO 신청",
+   "link": "https://www.hankyung.com/article/202610266351i",
+   "date": "2026-10-26T14:17:51.000Z",
+   "source": "한국경제"
+  },
+  {
+   "title": "\"현금만 500조원\"…사상최고가 버크셔, 다음 투자처는 메타?",
+   "link": "https://www.hankyung.com/article/202610266323i",
+   "date": "2026-10-26T13:54:50.000Z",
+   "source": "한국경제"
+  },
+  {
+   "title": "\"JYP 절반 사겠다\" 日투자사 깜짝 발표…주가 14% 뛰었다",
+   "link": "https://www.hankyung.com/article/2026102663267",
+   "date": "2026-10-26T13:30:42.000Z",
+   "source": "한국경제"
+  },
+  {
+   "title": "JYP, 때아닌 인수설…\"제안받은 적 없다\" 일축",
+   "link": "https://www.hankyung.com/article/202610266306H",
+   "date": "2026-10-26T13:27:10.000Z",
+   "source": "한국경제"
+  },
+  {
+   "title": "\"자식 줄 돈? 내가 다 쓰고 갈래요\"…은퇴세대 확 바뀌었다",
+   "link": "https://www.hankyung.com/article/2026102663197",
+   "date": "2026-10-26T13:23:40.000Z",
+   "source": "한국경제"
+  },
+  {
+   "title": "AI주도권 잡는데 126조원 조달 베팅…메타 저커버그 승부수 던졌다",
+   "link": "https://www.hankyung.com/article/202610266268i",
+   "date": "2026-10-26T12:23:20.000Z",
+   "source": "한국경제"
+  },
+  {
+   "title": "비트코인 8만달러 붕괴…AI 불안·연준·美 중간선거 3중고",
+   "link": "https://www.hankyung.com/article/202610266262i",
+   "date": "2026-10-26T11:50:05.000Z",
+   "source": "한국경제"
+  },
+  {
+   "title": "\"쥬얼리 끝나니 백수\"…이력서 수백장 넣고 직장인 된 하주연",
+   "link": "https://www.hankyung.com/article/2026102662647",
+   "date": "2026-10-26T11:45:28.000Z",
+   "source": "한국경제"
+  },
   {
    "title": "한은, 통화정책 부총재보에 최창호 통화정책국장 임명",
    "link": "https://www.hankyung.com/article/2026102662091",
@@ -18,139 +84,73 @@
    "link": "https://www.hankyung.com/article/202610266193i",
    "date": "2026-10-26T10:07:18.000Z",
    "source": "한국경제"
-  },
-  {
-   "title": "우상호 \"AI 데이터센터 유치 고발전 유감…투자 환경 악화 우려\"(종합)",
-   "link": "https://www.yna.co.kr/view/AKR20261026150851062",
-   "date": "2026-10-26T09:57:56.000Z",
-   "source": "연합뉴스"
-  },
-  {
-   "title": "해킹 발표 24일 만에…KB국민은행 정보유출 119→2천210명(종합)",
-   "link": "https://www.yna.co.kr/view/AKR20261026157951002",
-   "date": "2026-10-26T09:38:26.000Z",
-   "source": "연합뉴스"
-  },
-  {
-   "title": "하림산업, 부동산개발·식품사업 분할…하림식품 신설",
-   "link": "https://www.yna.co.kr/view/AKR20261026160700030",
-   "date": "2026-10-26T09:38:12.000Z",
-   "source": "연합뉴스"
-  },
-  {
-   "title": "지주의 불로소득 몰수?…토지세는 정의로운 세금인가",
-   "link": "https://www.hankyung.com/article/2026102659421",
-   "date": "2026-10-26T09:31:43.000Z",
-   "source": "한국경제"
-  },
-  {
-   "title": "금감원 불법대부계약 무효확인서, 피해자 무죄판결 첫 활용",
-   "link": "https://www.yna.co.kr/view/AKR20261026157200002",
-   "date": "2026-10-26T09:20:11.000Z",
-   "source": "연합뉴스"
-  },
-  {
-   "title": "홍라희 리움미술관 명예관장, 국민훈장 동백장",
-   "link": "https://www.hankyung.com/article/2026102659461",
-   "date": "2026-10-26T09:18:19.000Z",
-   "source": "한국경제"
-  },
-  {
-   "title": "\"세계 첫 양궁화 탄생…韓 금메달 이끌었죠\"",
-   "link": "https://www.hankyung.com/article/2026102659591",
-   "date": "2026-10-26T09:17:48.000Z",
-   "source": "한국경제"
-  },
-  {
-   "title": "지식재산처 '11조 짝퉁 대응' 성과 포상",
-   "link": "https://www.hankyung.com/article/2026102659471",
-   "date": "2026-10-26T09:17:08.000Z",
-   "source": "한국경제"
-  },
-  {
-   "title": "효성, 장애아동 가족과 2박3일 동행",
-   "link": "https://www.hankyung.com/article/2026102659561",
-   "date": "2026-10-26T09:16:20.000Z",
-   "source": "한국경제"
-  },
-  {
-   "title": "에이전트AI, 70억원 제3자배정 유상증자",
-   "link": "https://www.yna.co.kr/view/AKR20261026158600008",
-   "date": "2026-10-26T09:08:19.000Z",
-   "source": "연합뉴스"
-  },
-  {
-   "title": "KB국민은행 \"해킹 정보유출 2천91명 추가 확인…고객에 송구\"",
-   "link": "https://www.yna.co.kr/view/AKR20261026157900002",
-   "date": "2026-10-26T09:05:59.000Z",
-   "source": "연합뉴스"
   }
  ],
  "top": [
   {
-   "title": "[날씨] 전국 대체로 맑지만 강한 바람…밤부터 기온도 '뚝'",
-   "link": "https://www.yna.co.kr/view/AKR20261026151800004",
-   "date": "2026-10-26T11:00:01.000Z",
+   "title": "트럼프·오바마의 '라스트 배틀'…두 거물의 자리 누가 이을까",
+   "link": "https://www.yna.co.kr/view/AKR20261027001400071",
+   "date": "2026-10-26T16:38:36.000Z",
    "source": "연합뉴스"
   },
   {
-   "title": "대전 '스토킹 신고' 교제 여성 살해 40대 구속영장 신청(종합)",
-   "link": "https://www.yna.co.kr/view/AKR20261026158351063",
-   "date": "2026-10-26T10:55:26.000Z",
+   "title": "유럽 고물가 항의 시위 거센데…가스값 ㎿h당 100유로 위협",
+   "link": "https://www.yna.co.kr/view/AKR20261027001600085",
+   "date": "2026-10-26T16:28:51.000Z",
    "source": "연합뉴스"
   },
   {
-   "title": "'국제중재 올림픽' ICCA 총회 서울서 2030년에 열린다",
-   "link": "https://www.yna.co.kr/view/AKR20261026167400004",
-   "date": "2026-10-26T10:51:42.000Z",
+   "title": "이집트 의회, 사우디 방어 위한 군사 지원 승인…후티 공격 대응",
+   "link": "https://www.yna.co.kr/view/AKR20261027001500099",
+   "date": "2026-10-26T16:25:43.000Z",
    "source": "연합뉴스"
   },
   {
-   "title": "퇴출 위기서 가을 영웅으로…KIA 카스트로, PO 1호 홈런 작렬",
-   "link": "https://www.yna.co.kr/view/AKR20261026167100007",
-   "date": "2026-10-26T10:44:16.000Z",
+   "title": "北 '지뢰폭발' 맞대응 안보리 의장 서한…이사국들 회람",
+   "link": "https://www.yna.co.kr/view/AKR20261027001300072",
+   "date": "2026-10-26T16:24:25.000Z",
    "source": "연합뉴스"
   },
   {
-   "title": "택배상자 골판지에 마약 숨겨 밀반입·유통한 일당 공소청 송치",
-   "link": "https://www.yna.co.kr/view/AKR20261026166900004",
-   "date": "2026-10-26T10:40:59.000Z",
+   "title": "[이스라엘 총선 르포] 하레디의 요새 메아 셰아림…\"병역보다 중요한 건 종교\"",
+   "link": "https://www.yna.co.kr/view/AKR20261027001200079",
+   "date": "2026-10-26T16:20:56.000Z",
    "source": "연합뉴스"
   },
   {
-   "title": "젤렌스키 \"미·러·우크라 3자 실무회담 내달 개최 가능\"",
-   "link": "https://www.yna.co.kr/view/AKR20261026166700108",
-   "date": "2026-10-26T10:39:33.000Z",
+   "title": "우파 동맹의 잇단 패배…시험대 오르는 트럼프 대외 영향력",
+   "link": "https://www.yna.co.kr/view/AKR20261027000500071",
+   "date": "2026-10-26T15:54:56.000Z",
    "source": "연합뉴스"
   },
   {
-   "title": "JYP엔터테인먼트, 애프터마켓서 14%대 급등",
-   "link": "https://www.yna.co.kr/view/AKR20261026164100008",
-   "date": "2026-10-26T10:35:12.000Z",
+   "title": "\"美, '유럽의 트럼프' 오르반 유엔총장 추진…독재자 옹호 우려\"",
+   "link": "https://www.yna.co.kr/view/AKR20261027000400072",
+   "date": "2026-10-26T15:47:29.000Z",
    "source": "연합뉴스"
   },
   {
-   "title": "[동포의 창] 동포 언론인들 한자리에…재외언론 국제심포엄 개막",
-   "link": "https://www.yna.co.kr/view/AKR20261026164300371",
-   "date": "2026-10-26T10:34:56.000Z",
+   "title": "트럼프 사업체 배불리는 美여당…접대·숙박에 2년간 38억원 써",
+   "link": "https://www.yna.co.kr/view/AKR20261027000200071",
+   "date": "2026-10-26T15:31:02.000Z",
    "source": "연합뉴스"
   },
   {
-   "title": "\"의정비 인상 위한 요식행위?\"…청주시 여론조사 공정성 논란",
-   "link": "https://www.yna.co.kr/view/AKR20261026129300064",
-   "date": "2026-10-26T10:31:49.000Z",
+   "title": "마크롱, 폭력사태에 SNS 탓…\"우리 민주주의 손상시켜\"",
+   "link": "https://www.yna.co.kr/view/AKR20261027000300085",
+   "date": "2026-10-26T15:08:44.000Z",
    "source": "연합뉴스"
   },
   {
-   "title": "삼성-KIA 만난 프로야구 PO 1차전 매진…PS 42경기 연속 달성",
-   "link": "https://www.yna.co.kr/view/AKR20261026166300007",
-   "date": "2026-10-26T10:31:40.000Z",
+   "title": "[알림] 연합뉴스 콘텐츠 저작권 고지",
+   "link": "https://www.yna.co.kr/view/AKR20261027000100011",
+   "date": "2026-10-26T15:00:01.000Z",
    "source": "연합뉴스"
   },
   {
-   "title": "\"중국 車판매, 유럽시장서 분기 기준 최초로 일본 제쳐\"",
-   "link": "https://www.yna.co.kr/view/AKR20261026165000089",
-   "date": "2026-10-26T10:19:32.000Z",
+   "title": "'방위 동맹' 사우디·파키스탄·튀르키예, 이란과 고위급 회동(종합)",
+   "link": "https://www.yna.co.kr/view/AKR20261026105251009",
+   "date": "2026-10-26T14:29:18.000Z",
    "source": "연합뉴스"
   }
  ]
